@@ -5,12 +5,13 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { WebSocketLink } from 'apollo-link-ws';
 import { split } from 'apollo-link';
 import { getMainDefinition } from 'apollo-utilities';
+import { environment } from 'src/environments/environment';
 
 
 
 
-const uri = 'http://localhost:3000/graphql'; // <-- add the URL of the GraphQL server here
-const wsUri = `ws://localhost:3000/graphql`;
+const uri = `http://${environment.apiEndpoint}/graphql`; // <-- add the URL of the GraphQL server here
+const wsUri = `ws://${environment.apiEndpoint}/graphql`;
 
 export function createApollo(httpLink: HttpLink) {
 
